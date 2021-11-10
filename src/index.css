@@ -12,4 +12,8 @@ code {
     monospace;
 }
 
+:root {
+  --color-light: rgb(248, 245, 245);
+}
+
 @import url("./styles/styles.css");

@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { AppRoute } from "../utils/router";
 import { AuthProvider } from "../hooks/useAuth";
+import { withTheme } from "../hooks/withTheme";
 
 // Pages
 import DashboardPage from "./dashboard";
@@ -30,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default withTheme(App);

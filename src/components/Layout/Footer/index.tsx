@@ -1,15 +1,9 @@
-import React from 'react'
+import React from "react";
 
-type Props = {
-    
-}
+type Props = {};
 
 const Footer: React.FC<Props> = () => {
-    return (
-        <section>
-            
-        </section>
-    )
-}
+  return <section className="footer"></section>;
+};
 
-export default Footer
+export default Footer;

@@ -1,19 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { useStyles } from "./style";
+import { APP_NAME } from "../../../utils/config";
 
 type Props = {};
 
-const Header: React.FC<Props> = () => {
+const Header: React.FC<Props> = (props) => {
+  const classes = useStyles(props);
+
   return (
-    <section className="header">
-      <ul>
-        <li>
+    <section className={classes.root}>
+      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        {APP_NAME}
+      </Typography>
+      <div className="navs">
+        <Button>
           <Link to="/">Dashboard</Link>
-        </li>
-        <li>
+        </Button>
+        <Button>
           <Link to="/about">About</Link>
-        </li>
-      </ul>
+        </Button>
+      </div>
     </section>
   );
 };
