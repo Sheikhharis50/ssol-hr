@@ -1,13 +1,13 @@
-const fakeAuthProvider = {
+const Auth = {
   isAuthenticated: false,
   signin(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = true;
-    setTimeout(callback, 100); // fake async
+    Auth.isAuthenticated = true;
+    setTimeout(callback, 100);
   },
   signout(callback: VoidFunction) {
-    fakeAuthProvider.isAuthenticated = false;
+    Auth.isAuthenticated = false;
     setTimeout(callback, 100);
   },
 };
 
-export { fakeAuthProvider };
+export default Auth;

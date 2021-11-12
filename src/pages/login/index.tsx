@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { formDataToDict } from "../../utils";
 
 type Props = {};
 
@@ -14,10 +15,9 @@ const LoginPage: React.FC<Props> = () => {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    let formData = new FormData(event.currentTarget);
-    let username = formData.get("username") as string;
+    const formData = new FormData(event.currentTarget);
 
-    auth.signin(username, () => {
+    auth.signin(formDataToDict(formData), () => {
       navigate(from, { replace: true });
     });
   }
@@ -27,9 +27,17 @@ const LoginPage: React.FC<Props> = () => {
       <p>You must log in to view the page at {from}</p>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Username: <input name="username" type="text" />
-        </label>{" "}
+        <div>
+          <label>Name:</label>
+          <input name="name" type="text" />
+        </div>
+        <br />
+        <div>
+          <label>Username:</label>
+          <input name="username" type="text" />
+        </div>
+        <br />
+
         <button type="submit">Login</button>
       </form>
     </div>

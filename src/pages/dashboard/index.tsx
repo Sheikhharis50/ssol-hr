@@ -1,32 +1,23 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout";
 import { useAuth } from "../../hooks/useAuth";
+import { PageHeader } from "./style";
 
 type Props = {};
 
 const DashboardPage: React.FC<Props> = () => {
   let auth = useAuth();
-  let navigate = useNavigate();
-
-  if (!auth.user) {
-    return <p>You are not logged in.</p>;
-  }
 
   return (
     <Layout>
-      <h1>Dashboard</h1>
+      <PageHeader>
+        <h1>Dashboard</h1>
+        <small>
+          <b>Welcome</b>, {auth.user?.name}!{" "}
+        </small>
+      </PageHeader>
       <hr />
-      <p>
-        Welcome {auth.user}!{" "}
-        <button
-          onClick={() => {
-            auth.signout(() => navigate("/"));
-          }}
-        >
-          Sign out
-        </button>
-      </p>
+      <p>Description</p>
     </Layout>
   );
 };

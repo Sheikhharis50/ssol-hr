@@ -1,3 +1,3 @@
-import { fakeAuthProvider } from "./auth";
+import Auth from "./auth";
 
-export { fakeAuthProvider };
+export { Auth };

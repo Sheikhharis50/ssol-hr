@@ -1,5 +1,6 @@
 import React from "react";
-import { fakeAuthProvider } from "../api";
+import { Auth } from "../api";
+import { setSecretKey, delKeySecret, getKeySecret } from "../utils/secrets";
 
 type AuthContextType = {
   user: any;
@@ -8,19 +9,22 @@ type AuthContextType = {
 };
 
 let AuthContext = React.createContext<AuthContextType>(null!);
+const USER_KEY = "user";
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  let [user, setUser] = React.useState<any>(null);
+  let [user, setUser] = React.useState<any>(getKeySecret(USER_KEY));
 
   let signin = (newUser: string, callback: VoidFunction) => {
-    return fakeAuthProvider.signin(() => {
+    return Auth.signin(() => {
       setUser(newUser);
+      setSecretKey(USER_KEY, newUser);
       callback();
     });
   };
 
   let signout = (callback: VoidFunction) => {
-    return fakeAuthProvider.signout(() => {
+    return Auth.signout(() => {
+      delKeySecret(USER_KEY);
       setUser(null);
       callback();
     });

@@ -15,14 +15,15 @@ const Header: React.FC<Props> = (props) => {
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
         {APP_NAME}
       </Typography>
-      <div className="navs">
+      {/* TODO: will be removed if not needed. */}
+      {/* <div className="navs">
         <Button>
           <Link to="/">Dashboard</Link>
         </Button>
         <Button>
           <Link to="/about">About</Link>
         </Button>
-      </div>
+      </div> */}
     </section>
   );
 };
