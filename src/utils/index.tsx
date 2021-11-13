@@ -30,3 +30,11 @@ export function isEmptyObj(obj: any) {
   }
   return true;
 }
+
+/**
+ * @param value: string
+ * @returns: string
+ */
+export function escapeRegExp(value: string): string {
+  return value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}

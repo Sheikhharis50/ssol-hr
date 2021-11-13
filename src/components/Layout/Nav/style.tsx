@@ -1,6 +1,5 @@
 import { Theme, CSSObject } from "@mui/material/styles";
-
-const drawerWidth = 240;
+import { drawerWidth } from "../../theme";
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -26,4 +25,4 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-export { drawerWidth, openedMixin, closedMixin };
+export { openedMixin, closedMixin };

@@ -1,31 +1,33 @@
 import { Routes, Route } from "react-router-dom";
-import { AppRoute } from "../utils/router";
+import { AppRoute, AppRoutes } from "../utils/router";
 import { AuthProvider } from "../hooks/useAuth";
 import { withTheme } from "../hooks/withTheme";
-
-// Pages
-import DashboardPage from "./dashboard";
-import LoginPage from "./login";
-import AboutPage from "./about";
+import Box from "@mui/material/Box";
+import Nav from "../components/Layout/Nav";
+import Footer from "../components/Layout/Footer";
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <Routes>
-          <Route
-            path="/"
-            element={<AppRoute component={<DashboardPage />} privateRoute />}
-          />
-          <Route
-            path="/login"
-            element={<AppRoute component={<LoginPage />} />}
-          />
-          <Route
-            path="/about"
-            element={<AppRoute component={<AboutPage />} privateRoute />}
-          />
-        </Routes>
+        <Box sx={{ display: "flex", height: "100vh" }}>
+          <Nav />
+          <Routes>
+            {AppRoutes.map(({ path, privateRoute, Component }, index) => (
+              <Route
+                key={index}
+                path={path}
+                element={
+                  <AppRoute
+                    Component={<Component />}
+                    privateRoute={privateRoute}
+                  />
+                }
+              />
+            ))}
+          </Routes>
+          <Footer />
+        </Box>
       </AuthProvider>
     </div>
   );

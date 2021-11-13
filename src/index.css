@@ -19,6 +19,7 @@ code {
 
 :root {
   --color-light: rgb(248, 245, 245);
+  --color-danger: #d32f2f;
 }
 
 @import url("./styles/styles.css");

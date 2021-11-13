@@ -7,28 +7,34 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 type MenuItemType = {
   text: string;
   Icon?: any;
+  path?: string;
 };
 
 const MenuItems: Array<MenuItemType> = [
   {
     text: "Dashboard",
     Icon: DashboardIcon,
+    path: "/",
   },
   {
     text: "Departments",
     Icon: BusinessIcon,
+    path: "/departments",
   },
   {
     text: "Employees",
     Icon: PersonIcon,
+    path: "/employees",
   },
   {
     text: "Attendance",
     Icon: AssignmentTurnedInIcon,
+    path: "/attendance",
   },
   {
     text: "Reports",
     Icon: AssessmentIcon,
+    path: "/reports",
   },
 ];
 

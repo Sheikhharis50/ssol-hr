@@ -33,8 +33,16 @@ const LoginPage: React.FC<Props> = () => {
         </div>
         <br />
         <div>
-          <label>Username:</label>
+          <label>Email:</label>
           <input name="username" type="text" />
+        </div>
+        <br />
+        <div>
+          <label>Role:</label>
+          <select name="role">
+            <option value="admin">Admin</option>
+            <option value="hr">HR</option>
+          </select>
         </div>
         <br />
 
