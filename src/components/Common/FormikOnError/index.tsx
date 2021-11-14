@@ -6,8 +6,8 @@ import { useFormikContext } from "formik";
 const getFirstErrorKey: any = (object: any, objectFormat: any, keys = []) => {
   var firstErrorKey = null;
   var temp_object = Object.keys(object);
-  for (var key in objectFormat) {
-    if (temp_object.filter((val) => val === key).length) {
+  for (let key in objectFormat) {
+    if (temp_object.filter((val: any) => val === key).length) {
       firstErrorKey = key;
       break;
     }
@@ -48,7 +48,13 @@ const FormikOnError: React.FC<any> = ({ children }) => {
         global.window.document.getElementsByName(firstErrorKey)[0].focus();
       }
     }
-  }, [formik.submitCount, formik.isValid, formik.errors]);
+  }, [
+    formik.submitCount,
+    formik.isValid,
+    formik.errors,
+    formik.initialValues,
+    submitCount,
+  ]);
 
   return children;
 };
