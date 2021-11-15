@@ -113,7 +113,7 @@ const DepartmentsPage: React.FC<Props> = (props) => {
           />
           <Button
             text="Add New"
-            extraColor="royal"
+            color="royal"
             onClick={() => navigate("/departments/add")}
           />
         </ButtonContainer>

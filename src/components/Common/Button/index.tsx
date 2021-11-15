@@ -2,13 +2,27 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { useBtnStyles } from "./style";
 
+declare module "@mui/material/Button" {
+  interface ButtonPropsColorOverrides {
+    dark: true;
+    royal: true;
+  }
+}
+
 type Props = {
   Icon?: any;
   text: string;
   fullWidth?: boolean;
   onClick?: any;
-  color?: "primary" | "secondary" | "info" | "error" | "success" | "warning";
-  extraColor?: "dark" | "royal";
+  color?:
+    | "primary"
+    | "secondary"
+    | "info"
+    | "error"
+    | "success"
+    | "warning"
+    | "dark"
+    | "royal";
   className?: string;
   style?: Object;
   disabled?: boolean;
@@ -25,11 +39,10 @@ const AppButton: React.FC<Props> = ({
   className = "",
   style = {},
   disabled = false,
-  extraColor,
   type = "button",
   size = "medium",
 }) => {
-  const classes = useBtnStyles({ extraColor });
+  const classes = useBtnStyles({});
 
   return (
     <React.Fragment>

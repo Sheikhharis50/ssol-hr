@@ -3,6 +3,17 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const ColorContext = React.createContext({ toggleColorMode: () => {} });
 
+declare module "@mui/material/styles" {
+  interface Palette {
+    dark: Palette["primary"];
+    royal: Palette["primary"];
+  }
+  interface PaletteOptions {
+    dark: PaletteOptions["primary"];
+    royal: PaletteOptions["primary"];
+  }
+}
+
 const withTheme = (Component: React.FC) => (props: any) => {
   const [mode, setMode] = React.useState<"light" | "dark">("light");
   const colorMode = React.useMemo(
@@ -19,6 +30,16 @@ const withTheme = (Component: React.FC) => (props: any) => {
       createTheme({
         palette: {
           mode,
+          royal: {
+            main: "#035397",
+            contrastText: "#fff",
+          },
+          dark: {
+            main: "#333333",
+            contrastText: "#fff",
+          },
+          contrastThreshold: 3,
+          tonalOffset: 0.2,
         },
       }),
     [mode]

@@ -151,8 +151,8 @@ const DepartmentsPage: React.FC<Props> = () => {
                       <GridItem xs={1} sx={{ marginRight: 1 }}>
                         <Button
                           text="Back"
-                          extraColor="dark"
                           size="large"
+                          color="dark"
                           onClick={() => navigate(-1)}
                         />
                       </GridItem>

@@ -100,7 +100,7 @@ const SideNav: React.FC<Props> = ({ open, handleDrawerClose }) => {
             text={"Logout"}
             Icon={LogoutOutlinedIcon}
             onClick={handelLogout}
-            extraColor="royal"
+            color="royal"
           />
         ) : (
           <Tooltip title="Logout">
